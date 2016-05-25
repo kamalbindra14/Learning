@@ -7,11 +7,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class Learn {
   private static Properties prop = null;
   final static List<String> list = new ArrayList<String>();
+  public static final String PIPE = "|";
 
   public static void main(String[] args) {
     String str = "    ";

@@ -1,11 +1,15 @@
 package com.java.learn;
 
 import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 import com.java.concurrency.MyThread;
 import com.java.concurrency.Task;
 
 public class MainClass {
+  static final Map<Integer, String> intmap = new TreeMap<Integer, String>();
+  static final Map<String, String> strmap = new TreeMap<String, String>();
 
   public static void main(String[] args) {
     System.out.println("main : " + Thread.currentThread().getName());
@@ -36,6 +40,30 @@ public class MainClass {
     res = res.replace("{0}", "1");
     System.out.println("res = " + res);
     Sleep sl = new Sleep();
-    sl.makeMeSleep();
+    // sl.makeMeSleep();
+
+    intmap.put(1, "one");
+    intmap.put(5, "five");
+    intmap.put(2, "two");
+    intmap.put(4, "four");
+    intmap.put(14, "fourteen");
+    intmap.put(10, "ten");
+    intmap.put(13, "thirteen");
+    intmap.put(3, "three");
+    for (Map.Entry<Integer, String> entry : intmap.entrySet()) {
+      System.out.println(entry.getKey() + ":" + entry.getValue());
+    }
+    System.out.println("======================");
+    strmap.put("1", "one");
+    strmap.put("5", "five");
+    strmap.put("2", "two");
+    strmap.put("4", "four");
+    strmap.put("14", "fourteen");
+    strmap.put("10", "ten");
+    strmap.put("13", "thirteen");
+    strmap.put("3", "three");
+    for (Map.Entry<String, String> entry : strmap.entrySet()) {
+      System.out.println(entry.getKey() + ":" + entry.getValue());
+    }
   }
 }

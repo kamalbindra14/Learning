@@ -4,6 +4,8 @@ public class Test {
 
   public static void main(String[] args) {
     checkisShortcutKeyValid("1=|2=0|3=", "2");
+    String str = "abs-rmd";
+    System.out.println(str.toUpperCase());
   }
 
   public static String checkisShortcutKeyValid(final String shortcutKey,

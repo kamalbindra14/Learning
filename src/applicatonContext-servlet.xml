@@ -13,7 +13,7 @@
     <context:component-scan base-package="com.spring.*"/>
     
 	<aop:aspectj-autoproxy />
-	<context:property-placeholder location="classpath:application.properties"/>
+	<context:property-placeholder location="classpath:application.properties,classpath:c3p0.properties"/>
 	<!-- Bean declarations go here -->
 
 	<bean id="sonnet29" class="com.spring.impl.Sonnet29" />
@@ -135,7 +135,7 @@
 		<property name="preferredTestQuery" value="${c3p0.preferredTestQuery}"/>
 	</bean>
 	
-	<bean id="sessionFactory" class="org.springframeword.orm.hibernate3.LocalSessionFactoryBean">
+	<!-- <bean id="sessionFactory1" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 	   <property name="dataSource" ref="dataSource"/>
 	   <property name="mappingResources">
 	       <list>
@@ -147,9 +147,9 @@
 	           <prop key="dialect">org.hibernate.dialect.MySQLDialect</prop>
 	       </props>
 	   </property>
-	</bean>
+	</bean> -->
 	
-	<bean id="sessionFactoryAnnotated" class="org.springframeword.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
        <property name="dataSource" ref="dataSource"/>
        <property name="packagesToScan">
                <value>com.spring.hibernate.*</value>
@@ -160,5 +160,7 @@
            </props>
        </property>
     </bean>
+    <!-- For automatically throwing platform exceptions as spring's unchecked exceptions  using aop proxy-->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
 </beans>
